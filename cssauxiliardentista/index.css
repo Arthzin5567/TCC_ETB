@@ -1,0 +1,108 @@
+#menu_global {
+    width: 100vw;
+    height: 7rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--gray-color);
+    position: fixed;
+    z-index: 1;
+    border-bottom: 1px solid var(--gray-color);
+}
+
+#menu_global p {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+}
+
+#menu_global ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu_global ul li a {
+    padding: 5rem 1rem 5rem 1rem;
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: all 200ms ease;
+    height: 100%;
+    background: var(--cl);
+}
+
+#menu_global ul li a:hover {
+    color: var(--blue2-color);
+}
+
+
+
+
+
+#conteudo_especifico {
+    background-color: var(--gray-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 7rem;
+}
+
+#conteudo_especifico h1 {
+    color: var(--gray-color);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+#conteudo_especifico p {
+    color: var(--gray-color);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+#conteudo_especifico table tr {
+    text-align: left;
+}
+
+#conteudo_especifico table tr td {
+    padding: 0px 10px;
+    padding-bottom: 5px;
+}
+
+
+.btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn button{
+    width: 210px;
+    height: 50px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    background-color: var(--gray-color);
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    transition: all 400ms ease-in;
+    margin: 25px 0px 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn button:hover {
+    border: 1px solid var(--gray-color);
+    background-color: transparent;
+    color: var(--gray-color);
+  }

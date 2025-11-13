@@ -1,0 +1,14 @@
+.content {
+    width: 100vw;
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--blue-color);
+    position: fixed;
+    z-index: 1;
+  }
+
+  .content h1 {
+    color: var(--white-color);
+  }

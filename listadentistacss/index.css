@@ -1,0 +1,147 @@
+#menu_global {
+  width: 100vw;
+  height: 7rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--gray-color);
+  position: fixed;
+  z-index: 1;
+}
+
+#menu_global p {
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 10px;
+}
+
+
+#menu_global ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#menu_global ul li a{
+  padding: 5rem 1rem 5rem 1rem;
+  color:var(--white-color);
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 600;
+  transition: all 200ms ease;
+  height: 100%;
+  background: var(--cl);
+}
+
+#menu_global ul li a:hover {
+    color: #1b98e0;
+}
+
+#primeira-section {
+  padding-top: 7rem;
+  height: 400px;
+  width: 100vw;
+  background-image:linear-gradient(rgba(29, 29, 29, 0.4), rgba(29, 29, 29, 0.4)), url('../img/clin.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#segunda-section {
+  padding-top: 7rem;
+  height: 400px;
+  width: 100vw;
+  background-image:linear-gradient(rgba(29, 29, 29, 0.4), rgba(29, 29, 29, 0.4)), url('../img/auxiliar.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#terceira-section {
+  padding-top: 7rem;
+  height: 400px;
+  width: 100vw;
+  background-image:linear-gradient(rgba(29, 29, 29, 0.4), rgba(29, 29, 29, 0.4)), url('../img/paciente.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#quarta-section {
+  padding-top: 7rem;
+  height: 400px;
+  width: 100vw;
+  background-image:linear-gradient(rgba(29, 29, 29, 0.4), rgba(29, 29, 29, 0.4)), url('../img/exame.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#quinta-section {
+  padding-top: 7rem;
+  height: 400px;
+  width: 100vw;
+  background-image:linear-gradient(rgba(29, 29, 29, 0.4), rgba(29, 29, 29, 0.4)), url('../img/prontuario.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#conteudo_especifico {
+  background-color: var(--gray-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#conteudo_especifico h1 {
+  color: var(--white-color);
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+#conteudo_especifico p {
+  color: var(--white-color);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+#conteudo_especifico .interacao {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1b98e0;
+}
+
+#conteudo_especifico .subtitulos {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1b98e0;
+}
+
+#conteudo_especifico table {
+  color: var(--white-color);
+  text-align: center;
+  font-size: 1.4rem;
+  padding-top: 10px; 
+}
+
+#conteudo_especifico table tr {
+  text-align: left;
+  padding: 10px;
+}
+
+#conteudo_especifico table tr td {
+  padding: 10px;
+}
+
+
+.titulo {
+  padding-bottom: 20px;
+}
+
