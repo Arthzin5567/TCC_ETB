@@ -1,7 +1,12 @@
-<?php 
+<?php
     session_start();
 
-    $conectar = mysqli_connect("localhost", "root", "", "clinica");
+    $host = "localhost";
+                    $user = "root";
+                    $password = "SenhaIrada@2024!";
+
+                    $database = "clinica";
+                    $conectar = mysqli_connect($host, $user, $password, $database);
 
     $cod = $_POST["codigo"];
     $supervisor = $_POST["supervisor"];
@@ -14,17 +19,31 @@
     
 
     $sql_altera = "UPDATE auxiliardedentista
-                    SET supervisor = '$supervisor',
-                        nome = '$nome',
-                        cpf = '$cpf',
-                        endereco = '$endereco',
-                        telefone = '$telefone',
-                        dataNascimento = '$dataNascimento'
-                    WHERE cpf = '$cod'";
+                SET supervisor = ?,
+                    nome = ?,
+                    cpf = ?,
+                    endereco = ?,
+                    telefone = ?,
+                    dataNascimento = ?
+                WHERE cpf = ?";
 
-    $sql_resultado_alteracao = mysqli_query($conectar, $sql_altera);
+    $stmt = mysqli_prepare($conectar, $sql_altera);
+
+    mysqli_stmt_bind_param($stmt, "ssssiss",
+        $supervisor,
+        $nome,
+        $cpf,
+        $endereco,
+        $telefone,
+        $dataNascimento,
+        $cod
+    );
+
+    $success = mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_close($stmt);
     
-    if ($sql_resultado_alteracao == true) {
+    if ($success = true) {
 
         echo "<script> alert ('Auxiliar alterado com sucesso! ') </script>";
         echo "<script> location.href = ('lista_auxden.php') </script>";
@@ -35,5 +54,3 @@
         echo "<script> location.href ('altera_auxiliarDentista.php?codigo=$cod') </script>";
 
     }
-
-?>

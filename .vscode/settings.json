@@ -1,3 +1,7 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "arthzin5567",
+        "projectKey": "Arthzin5567_TCC_ETB"
+    }
 }

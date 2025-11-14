@@ -1,7 +1,12 @@
-<?php 
+<?php
     session_start();
 
-    $conectar = mysqli_connect("localhost", "root", "", "clinica");
+    $host = "localhost";
+                    $user = "root";
+                    $password = "SenhaIrada@2024!";
+
+                    $database = "clinica";
+                    $conectar = mysqli_connect($host, $user, $password, $database);
 
     $cod = $_POST["codigo"];
 
@@ -13,16 +18,23 @@
     
 
     $sql_altera = "UPDATE exame
-                    SET tipo = '$tipo',
-                        data = '$data',
-                        resultado = '$resultado',
-                        dentista_idDentista = '$dentista_idDentista',
-                        paciente_idpaciente = '$paciente_idpaciente'
-                    WHERE idexame = '$cod'";
+                SET tipo = ?,
+                    data = ?,
+                    resultado = ?,
+                    dentista_idDentista = ?,
+                    paciente_idpaciente = ?
+                WHERE idexame = ?";
 
-    $sql_resultado_alteracao = mysqli_query($conectar, $sql_altera);
+    $stmt = mysqli_prepare($conectar, $sql_altera);
+    mysqli_stmt_bind_param($stmt, "sssiii",
+        $tipo, $data, $resultado, $dentista_idDentista,
+        $paciente_idpaciente, $cod
+    );
+
+    $success = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
     
-    if ($sql_resultado_alteracao == true) {
+    if ($success = true) {
 
         echo "<script> alert ('Exame alterado com sucesso! ') </script>";
         echo "<script> location.href = ('exames.php') </script>";
@@ -33,5 +45,3 @@
         echo "<script> location.href ('altera_exame.php?id=$cod') </script>";
 
     }
-
-?>

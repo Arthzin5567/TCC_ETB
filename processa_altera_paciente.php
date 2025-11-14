@@ -1,7 +1,11 @@
-<?php 
+<?php
     session_start();
 
-    $conectar = mysqli_connect("localhost", "root", "", "clinica");
+    $host = "localhost";
+    $user = "root";
+    $password = "SenhaIrada@2024!";
+    $database = "clinica";
+    $conectar = mysqli_connect($host, $user, $password, $database);
 
     $cod = $_POST["codigo"];
 
@@ -15,16 +19,23 @@
     
 
     $sql_altera = "UPDATE paciente
-                    SET dataCadastro = '$dataCadastro',
-                        nome = '$nome',
-                        cpf = '$cpf',
-                        endereco = '$endereco',
-                        dataNascimento = '$dataNascimento'
-                    WHERE cpf = '$cod'";
+                SET dataCadastro = ?,
+                    nome = ?,
+                    cpf = ?,
+                    endereco = ?,
+                    dataNascimento = ?
+                WHERE cpf = ?";
 
-    $sql_resultado_alteracao = mysqli_query($conectar, $sql_altera);
+    $stmt = mysqli_prepare($conectar, $sql_altera);
+    mysqli_stmt_bind_param($stmt, "sssssis",
+        $dataCadastro, $nome, $cpf, $endereco,
+        $dataNascimento, $cod
+    );
+
+    $success = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
     
-    if ($sql_resultado_alteracao == true) {
+    if ($success = true) {
 
         echo "<script> alert ('Paciente alterado com sucesso! ') </script>";
         echo "<script> location.href = ('lista_pac.php') </script>";
@@ -35,5 +46,3 @@
         echo "<script> location.href ('altera_paciente.php?codigo=$cod') </script>";
 
     }
-
-?>

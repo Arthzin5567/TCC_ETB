@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
 
     $conectar = mysqli_connect("localhost", "root", "", "clinica");
@@ -12,15 +12,22 @@
     
 
     $sql_altera = "UPDATE prontuario
-                    SET numero = '$numero',
-                        dataAbertura = '$dataAbertura',
-                        anotacoes = '$anotacoes',
-                        dentista_idDentista = '$dentista_idDentista'
-                    WHERE idprontuario = '$cod'";
+                SET numero = ?,
+                    dataAbertura = ?,
+                    anotacoes = ?,
+                    dentista_idDentista = ?
+                WHERE idprontuario = ?";
 
-    $sql_resultado_alteracao = mysqli_query($conectar, $sql_altera);
+    $stmt = mysqli_prepare($conectar, $sql_altera);
+    mysqli_stmt_bind_param($stmt, "issii",
+        $numero, $dataAbertura, $anotacoes,
+        $dentista_idDentista, $cod
+    );
+
+    $success = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
     
-    if ($sql_resultado_alteracao == true) {
+    if ($success = true) {
 
         echo "<script> alert ('Prontuário alterado com sucesso! ') </script>";
         echo "<script> location.href = ('prontuarios.php') </script>";
@@ -31,5 +38,3 @@
         echo "<script> location.href ('altera_prontuario.php?id=$cod') </script>";
 
     }
-
-?>
